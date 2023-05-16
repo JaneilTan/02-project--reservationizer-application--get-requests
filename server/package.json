@@ -31,7 +31,8 @@
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "mongoose": "^6.0.7",
-    "nodemon": "^2.0.12"
+    "nodemon": "^2.0.12",
+    "supertest": "^6.3.3"
   },
   "jest": {
     "setupFilesAfterEnv": [

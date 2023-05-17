@@ -3,10 +3,13 @@ import { useParams } from "react-router-dom";
 import { formatDate } from "../utils/formatDate";
 import "./Reservation.css";
 import BackButton from "./BackButton";
+import ReservationList from "./ReservationList";
+
+
 
 const Reservation = () => {
   const { id } = useParams();
-  const [reservation, setReservation] = useState({});
+  const [reservation, setReservation] = useState([]);
   const [isNotFound, setIsNotFound] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -26,7 +29,15 @@ const Reservation = () => {
 
     fetchData();
   }, [id]);
-
+  
+  if (reservation) {
+    return (
+      <>
+    <ReservationList />
+    </>
+    );
+  } 
+  
   if (isNotFound) {
     return (
       <>

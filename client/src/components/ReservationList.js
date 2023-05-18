@@ -25,7 +25,7 @@ const ReservationList = () => {
     <h1>Upcoming reservations</h1>
     
       {reservations.map((reservation) => (
-        <div key={reservation.id}>
+        <div key={reservation.id} className="restaurant">
           <h2>{reservation.restaurantName}</h2>
           <p>{formatDate(reservation.date, "2023-11-17T06:30:00.000Z")}</p>
           

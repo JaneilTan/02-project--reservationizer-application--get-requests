@@ -28,8 +28,6 @@ const ReservationList = () => {
         <div key={reservation.id} className="restaurant">
           <h2>{reservation.restaurantName}</h2>
           <p>{formatDate(reservation.date, "2023-11-17T06:30:00.000Z")}</p>
-          
-          
           <Link to={`/reservations/${reservation.id}`}>View details</Link>
         </div>  
       ))}

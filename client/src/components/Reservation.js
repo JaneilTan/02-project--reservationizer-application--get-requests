@@ -5,9 +5,6 @@ import "./Reservation.css";
 import BackButton from "./BackButton";
 
 
-
-
-
 const Reservation = () => {
   const { id } = useParams();
   const [reservation, setReservation] = useState({});

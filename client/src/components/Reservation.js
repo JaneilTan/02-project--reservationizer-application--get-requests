@@ -47,8 +47,8 @@ const Reservation = () => {
     <>
        <div className="restaurant"></div>
        <h2>{reservation.restaurantName}</h2>
-       <p>{formatDate(reservation.date, "2023-11-17T06:30:00.000Z")}</p>
-       <h3>Party size: {reservation.partySize}</h3>
+       <p>{formatDate(reservation.date)}</p>
+       <p><strong>Party Size:</strong>{reservation.partySize}</p>
         
         <BackButton />
       

@@ -3,13 +3,14 @@ import { useParams } from "react-router-dom";
 import { formatDate } from "../utils/formatDate";
 import "./Reservation.css";
 import BackButton from "./BackButton";
-import ReservationList from "./ReservationList";
+
+
 
 
 
 const Reservation = () => {
   const { id } = useParams();
-  const [reservation, setReservation] = useState([]);
+  const [reservation, setReservation] = useState({});
   const [isNotFound, setIsNotFound] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -31,15 +32,6 @@ const Reservation = () => {
   }, [id]);
   
   
-
-  if (reservation) {
-    return (
-      <>
-    <ReservationList />
-    </>
-    );
-  } 
-  
   if (isNotFound) {
     return (
       <>
@@ -53,11 +45,19 @@ const Reservation = () => {
     return <p>Loading...</p>;
   }
 
+  
   return (
     <>
-      <BackButton />
+       <div className="restaurant"></div>
+       <h2>{reservation.restaurantName}</h2>
+       <p>{formatDate(reservation.date, "2023-11-17T06:30:00.000Z")}</p>
+       <h3>Party size: {reservation.partySize}</h3>
+        
+        <BackButton />
+      
     </>
   );
+  
 };
 
 export default Reservation;

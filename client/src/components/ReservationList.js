@@ -26,11 +26,11 @@ const ReservationList = () => {
     
       {reservations.map((reservation) => (
         <div key={reservation.id}>
-          <p>{reservation.partySize}</p>
+          <h2>{reservation.restaurantName}</h2>
           <p>{formatDate(reservation.date, "2023-11-17T06:30:00.000Z")}</p>
-          <p>{reservation.userId}</p>
-          <p>{reservation.restaurantName}</p>
-          <Link to={`/reservations/${reservations.id}`}>View details</Link>
+          
+          
+          <Link to={`/reservations/${reservation.id}`}>View details</Link>
         </div>  
       ))}
       

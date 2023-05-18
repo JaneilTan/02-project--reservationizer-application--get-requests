@@ -3,3 +3,6 @@
   padding-bottom: 2rem;
   border-bottom: 1px dashed #ccc;
 }
+body {
+  font-size: large;
+}

@@ -37,27 +37,35 @@ describe("App", () => {
 });
 
 test("Get /reservations/:id should respond with a single reservation", async () => {
-    const reservations = await ReservationModel.findById("507f1f77bcf86cd799439011");
-    const normalReservations = formatReservations(reservations);
     
-    const expected = JSON.parse(JSON.stringify(normalReservations));
+    
+    const expected = {
+            id: "507f1f77bcf86cd799439011",
+            partySize: 4,
+            date: "2023-11-17T06:30:00.000Z",
+            userId: "614abe145f317b89a2e36883",
+            restaurantName: "Island Grill"
+        };
+
     
 
     await request(app)
     .get("/reservations/507f1f77bcf86cd799439011")
     .expect(200)
     .expect((res) => {
-        const body = res.body;
-        expect(body).toEqual(expected);
+        expect(res.body).toEqual(expected);
     });
 });
 
 test("Get /reservations/:id should respond with a 404 error with unknown ids", async () => {
     
+   
 
     await request(app)
     .get("/reservations/527f1f77bcf86cd799439011")
     .expect(404)
+    
+   
     
 });
 

@@ -19,13 +19,13 @@ app.get("/reservations/:id", async (req, res) => {
     const id = req.params.id;
 
     if (!validId(id)){
-       return res.sendStatus(400) 
+       return res.status(400).send([{ message: "id provided is invalid" }])
     }
 
     const reservation = await ReservationModel.findById(id);
 
     if(reservation === null){
-       return res.sendStatus(404)
+       return res.status(404).send([{ message: "id not found" }]);
     }
 
     const normalReservation = formatReservations(reservation);
